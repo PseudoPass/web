@@ -1,27 +1,19 @@
- import './styles/App.css';
-import '../components/NavigationBar/NavigationBar';
- import NavigationBar from "../components/NavigationBar/NavigationBar";
+import React from 'react';
 
+import { GoogleLogin } from '@react-oauth/google';
 
-function HomePage() {
-    return (
-        <div className="App">
-            <header className="App-header">
-                <NavigationBar />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
-        </div>
-    );
+function Homepage() {
+  const responseMessage = (response) => {
+    console.log(response);
+  };
+  const errorMessage = (error) => {
+    console.log(error);
+  };
+  return (
+    <div>
+      <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+    </div>
+  );
 }
 
-export default HomePage;
+export default Homepage;

@@ -2,47 +2,35 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './tests/reportWebVitals';
-import HomePage from "./routes/HomePage";
-import IDCardPage from "./routes/IDCardPage";
-import SettingsPage from "./routes/SettingsPage";
+import HomePage from './routes/HomePage';
+import IDCardPage from './routes/IDCardPage';
+import SettingsPage from './routes/SettingsPage';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import App from './App';
 
-import {
-    createBrowserRouter,
-    RouterProvider,
-} from "react-router-dom";
-
-
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <HomePage />,
-    },
-    {
-        path: "/id",
-        element: <IDCardPage />,
-    },
-    {
-        path: "/settings",
-        element: <SettingsPage />,
-    },
+  {
+    path: '/',
+    element: <HomePage />,
+  },
+  {
+    path: '/id',
+    element: <IDCardPage />,
+  },
+  {
+    path: '/settings',
+    element: <SettingsPage />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <GoogleOAuthProvider clientId="1079284959593-fdurd06jgq10ek0ffh616i753kup4rb5.apps.googleusercontent.com">
+    <React.StrictMode>
       <RouterProvider router={router} />
-  </React.StrictMode>
-);
-ReactDOM.render(
-    <GoogleOAuthProvider clientId='1079284959593-fdurd06jgq10ek0ffh616i753kup4rb5.apps.googleusercontent.com'>
-        <React.StrictMode>
-            <App />
-        </React.StrictMode>
-    </GoogleOAuthProvider>,
-    document.getElementById('root')
+    </React.StrictMode>
+  </GoogleOAuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
