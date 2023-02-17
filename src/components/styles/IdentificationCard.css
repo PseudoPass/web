@@ -1,0 +1,19 @@
+.idcard-container{
+    position: fixed;
+    top: 40px;
+    width: 100%;
+    height: 280px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    padding: 4px;
+}
+
+.idcard-text {
+    padding: 16px;
+}
+
+.idcard-img {
+    width: 160px;
+    padding: 8px;
+}

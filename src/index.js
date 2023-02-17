@@ -1,13 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './tests/reportWebVitals';
+import HomePage from "./routes/HomePage";
+import IDCardPage from "./routes/IDCardPage";
+import SettingsPage from "./routes/SettingsPage";
+
+import {
+    createBrowserRouter,
+    RouterProvider,
+} from "react-router-dom";
+
+
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <HomePage />,
+    },
+    {
+        path: "/id",
+        element: <IDCardPage />,
+    },
+    {
+        path: "/settings",
+        element: <SettingsPage />,
+    },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <RouterProvider router={router} />
   </React.StrictMode>
 );
 
