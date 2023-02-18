@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import reportWebVitals from './tests/reportWebVitals';
 import HomePage from './routes/HomePage';
 import IDCardPage from './routes/IDCardPage';
 import SettingsPage from './routes/SettingsPage';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
