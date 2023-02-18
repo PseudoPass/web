@@ -3,16 +3,14 @@
     align-items: center;
     display: flex;
 }
+
 .login-button {
     width: 300px;
 }
+
 .logo-text {
     margin-top: 24px;
     font-size: 30px;
-}
-
-.login-text {
-margin: 24px;
 }
 
 .google-icon {
