@@ -5,16 +5,12 @@ import React from "react";
 
 
 const LoginPage = (props) => {
-    const user = props.user;
-    const setProfile = props.setProfile;
-    const setUser = props.setUser;
+    const { setUser }  = props;
 
     return (
         <div className={"main-container"}>
             <div className={"login-text"}>Login using SJSU Credentials</div>
             <GoogleLoginButton
-                user={user}
-                setProfile={setProfile}
                 setUser={setUser}
             />
         </div>
