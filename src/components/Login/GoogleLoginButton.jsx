@@ -1,4 +1,4 @@
-import {GoogleLogin, googleLogout, useGoogleLogin} from '@react-oauth/google';
+import {useGoogleLogin} from '@react-oauth/google';
 import Button from "react-bootstrap/Button";
 import React, {useEffect} from "react";
 import axios from "axios";
@@ -8,31 +8,31 @@ const GoogleLoginButton = (props) => {
     const setProfile = props.setProfile;
     const setUser = props.setUser;
 
-    useEffect(
-        () => {
-            if (user) {
-                axios
-                    .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
-                        headers: {
-                            Authorization: `Bearer ${user.access_token}`,
-                            Accept: 'application/json'
-                        }
-                    })
-                    .then((res) => {
-                        setProfile(res.data);
-                    })
-                    .catch((err) => console.log(err));
+    const fetchGoogleProfileData = () => {
+        axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
+            headers: {
+                Authorization: `Bearer ${user.access_token}`,
+                Accept: 'application/json'
             }
-        },
-        [ user ]
-    );
+        })
+            .then((res) => {
+                setProfile(res.data);
+            })
+            .catch((err) => console.log(err));
+    }
 
     const login = useGoogleLogin({
-        flow: "implicit",
-        onSuccess: (CodeResponse) => setUser(CodeResponse),
+        // flow: "implicit",
+        onSuccess: (tokenResponse) => {
+        setUser(tokenResponse);
+        fetchGoogleProfileData();
+
+
+
+            },
         onError: (error) => console.log('Login Failed:', error),
-        ux_mode: "redirect",
-        redirectUri: "http://localhost:3000/"
+        // ux_mode: "redirect",
+        // redirectUri: "http://localhost:3000/"
     });
 
   return (

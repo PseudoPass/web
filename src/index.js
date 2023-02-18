@@ -24,9 +24,10 @@ const router = createBrowserRouter([
   },
 ]);
 
+const googleClientID = "1079284959593-fdurd06jgq10ek0ffh616i753kup4rb5.apps.googleusercontent.com";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <GoogleOAuthProvider clientId="1079284959593-fdurd06jgq10ek0ffh616i753kup4rb5.apps.googleusercontent.com">
+  <GoogleOAuthProvider clientId={googleClientID}>
     <React.StrictMode>
       <RouterProvider router={router} />
     </React.StrictMode>

@@ -1,17 +1,19 @@
 import "./styles/HomePage.css";
-import React, { useState } from 'react';
-import GoogleLoginButton from "../components/Login/GoogleLoginButton";
+import React, {useEffect, useState} from 'react';
 import {googleLogout} from "@react-oauth/google";
 import LoginPage from "./LoginPage";
+import axios from "axios";
 
 const Homepage = () => {
     const [ user, setUser ] = useState(null);
     const [ profile, setProfile ] = useState(null);
 
+
     // log out function to log the user out of google and set the profile array to null
     const logOut = () => {
         googleLogout();
         setProfile(null);
+        setUser(null);
     };
 
     return (
