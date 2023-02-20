@@ -2,29 +2,45 @@ import {useGoogleLogin} from '@react-oauth/google';
 import Button from "react-bootstrap/Button";
 import React, {useEffect} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
-const GoogleLoginButton = (props) => {
-    const { setUser }  = props;
+const GoogleLoginButton = () => {
 
-    const queryBackend = () => {
+    const navigate = useNavigate();
 
+    const fetchAuthentication = async () => {
+        console.log("Fetching auth...")
+        fetch('http://localhost:4000/auth/validate', {
+            "method": "GET",
+            "credentials": "include"
+        }).then(res => {
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
+            navigate("/login")
+        })
     }
 
-    const login = useGoogleLogin({
-        // flow: "implicit",
-        onSuccess: (tokenResponse) => {
-            setUser(tokenResponse);
-            },
-        onError: (error) => console.log('Login Failed:', error),
-        // ux_mode: "redirect",
-        // redirectUri: "http://localhost:3000/"
-    });
+    const redirectGoogleOAUTH = () => {
+        let timer = null;
 
+        const googleLoginURL = "http://localhost:4000/auth/google";
+        const newWindow = window.open(googleLoginURL, "_blank", "width=500,height=800");
+        if (newWindow) {
+            timer = setInterval(() => {
+                if (newWindow.closed) {
+                    fetchAuthentication();
+                    if (timer) clearInterval(timer);
+                }
+            }, 500);
+        }
+    }
   return (
       <Button
           className={"login-button"}
           variant="outline-dark"
-          onClick={() => login()} >
+          onClick={() => redirectGoogleOAUTH()}
+      >
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
              className="google-icon">
           <g>
