@@ -1,27 +1,25 @@
 import "./styles/HomePage.css";
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import LoginPage from "./LoginPage";
 import IDCardPage from "./IDCardPage";
-import {Route, Routes, useNavigate} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import LoginSuccess from "../components/Login/LoginSuccess";
 import HomePage from "./HomePage";
-import axios from "axios";
+import NavigationBar from "../components/NavigationBar/NavigationBar";
 
 const App = () => {
     const [authenticated, setAuthenticated] = useState(false);
     const [profile, setProfile] = useState(null);
-    axios.defaults.withCredentials = true
-
 
     return (
         <div className={"main-container"}>
+            <NavigationBar profile={profile}/>
             <div>
-                {/*<NavigationBar />*/}
                 <Routes>
                     <Route exact path={"/"} element={<HomePage />} />
-                    <Route exact path={"/login"} element={<LoginPage />} />
+                    <Route exact path={"/login"} element={<LoginPage setProfile={setProfile}/>} />
                     <Route path={"/login/success"} element={<LoginSuccess />} />
-                    <Route path={"id"} element={<IDCardPage />} />
+                    <Route exact path={"id"} element={<IDCardPage profile={profile}/>} />
                 </Routes>
             </div>
         </div>

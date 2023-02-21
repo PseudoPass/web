@@ -1,45 +1,39 @@
-import {useGoogleLogin} from '@react-oauth/google';
 import Button from "react-bootstrap/Button";
-import React, {useEffect} from "react";
+import React from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-const GoogleLoginButton = () => {
-
+const GoogleLoginButton = (props) => {
+    const { setProfile } = props;
     const navigate = useNavigate();
 
-    const fetchAuthentication = async () => {
-        console.log("Fetching auth...")
-        fetch('http://localhost:4000/auth/validate', {
-            "method": "GET",
-            "credentials": "include"
-        }).then(res => {
-            console.log(res);
-        }).catch(err => {
-            console.log(err);
-            navigate("/login")
-        })
-    }
-
-    const redirectGoogleOAUTH = () => {
+    const handleGoogleLogin = () => {
         let timer = null;
-
         const googleLoginURL = "http://localhost:4000/auth/google";
         const newWindow = window.open(googleLoginURL, "_blank", "width=500,height=800");
         if (newWindow) {
             timer = setInterval(() => {
                 if (newWindow.closed) {
-                    fetchAuthentication();
+                    console.log("Fetching auth...")
+                    axios.get('http://localhost:4000/auth/validate', {withCredentials: true})
+                        .then(res => {
+                            setProfile(res.data)
+                            navigate("/id")
+                        }).catch(err => {
+                        console.log(err);
+                        navigate("/login")
+                    });
                     if (timer) clearInterval(timer);
                 }
             }, 500);
         }
     }
+
   return (
       <Button
           className={"login-button"}
           variant="outline-dark"
-          onClick={() => redirectGoogleOAUTH()}
+          onClick={() => handleGoogleLogin()}
       >
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
              className="google-icon">

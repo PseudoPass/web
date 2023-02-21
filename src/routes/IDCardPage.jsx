@@ -1,30 +1,23 @@
-import NavigationBar from "../components/NavigationBar/NavigationBar";
 import IdentificationCard from "../components/IdentificationCard/IdentificationCard";
 import './styles/IDCardPage.css';
 import React from "react";
-import {googleLogout} from "@react-oauth/google";
+import {useNavigate} from "react-router-dom";
 const IDCardPage = (props) => {
-    const { profile, setProfile, setUser } = props;
+    const { profile } = props;
+    const navigate = useNavigate();
 
-    const logOut = () => {
-        googleLogout();
-        setProfile(null);
-        setUser(null);
-    };
 
     return(
-        <div>
-            <NavigationBar />
-            {/*<IdentificationCard />*/}
+        <div className={"main-container"}>
+            { !profile ? navigate('/login') :
             <div>
-                <img src={profile.picture} alt="user image" />
-                <h3>User Logged in</h3>
-                <p>Name: {profile.name}</p>
+                <img src={profile.imageUri} alt="user image" />
+                <p>Name: {profile.displayName}</p>
                 <p>Email Address: {profile.email}</p>
                 <br />
                 <br />
-                <button onClick={logOut}>Log out</button>
             </div>
+            }
         </div>
     );
 }
