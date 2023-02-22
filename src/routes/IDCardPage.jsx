@@ -1,11 +1,23 @@
-import NavigationBar from "../components/NavigationBar/NavigationBar";
 import IdentificationCard from "../components/IdentificationCard/IdentificationCard";
 import './styles/IDCardPage.css';
-function IDCardPage() {
+import React from "react";
+import {useNavigate} from "react-router-dom";
+const IDCardPage = (props) => {
+    const { profile } = props;
+    const navigate = useNavigate();
+
+
     return(
-        <div>
-            <NavigationBar />
-            <IdentificationCard />
+        <div className={"main-container"}>
+            { !profile ? navigate('/login') :
+            <div>
+                <img src={profile.imageUri} alt="user image" />
+                <p>Name: {profile.displayName}</p>
+                <p>Email Address: {profile.email}</p>
+                <br />
+                <br />
+            </div>
+            }
         </div>
     );
 }

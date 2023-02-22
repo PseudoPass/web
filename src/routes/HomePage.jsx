@@ -1,60 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { googleLogout, useGoogleLogin } from '@react-oauth/google';
-import axios from 'axios';
+import "./styles/HomePage.css";
+import React, {useEffect, useState} from 'react';
+import {Carousel, CarouselItem} from "react-bootstrap";
 
-function Homepage() {
-    const [ user, setUser ] = useState([]);
-    const [ profile, setProfile ] = useState([]);
-
-    const login = useGoogleLogin({
-        onSuccess: (codeResponse) => setUser(codeResponse),
-        onError: (error) => console.log('Login Failed:', error)
-    });
-
-    useEffect(
-        () => {
-            if (user) {
-                axios
-                    .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
-                        headers: {
-                            Authorization: `Bearer ${user.access_token}`,
-                            Accept: 'application/json'
-                        }
-                    })
-                    .then((res) => {
-                        setProfile(res.data);
-                    })
-                    .catch((err) => console.log(err));
-            }
-        },
-        [ user ]
-    );
-
-    // log out function to log the user out of google and set the profile array to null
-    const logOut = () => {
-        googleLogout();
-        setProfile(null);
-    };
+const HomePage = () => {
 
     return (
-        <div>
-            <h2>React Google Login</h2>
-            <br />
-            <br />
-            {profile ? (
-                <div>
-                    <img src={profile.picture} alt="user image" />
-                    <h3>User Logged in</h3>
-                    <p>Name: {profile.name}</p>
-                    <p>Email Address: {profile.email}</p>
-                    <br />
-                    <br />
-                    <button onClick={logOut}>Log out</button>
+        <div className={"main-container"}>
+            <div className={"logo-text"}>Pseudo Pass</div>
+                <div className={"catchphrase"}>PseudoPass believes there is a better way</div>
+                <div className={"carousel"}>
+                    <Carousel>
+                        <CarouselItem>You don’t know you… until you pseudo pass through.</CarouselItem>
+                        <CarouselItem>Your identity is eternal, Pseudo Pass it on the blockchain.</CarouselItem>
+                        <CarouselItem>  Can you really trust yourself, if you aren’t PseudoPassed?</CarouselItem>
+                    </Carousel>
                 </div>
-            ) : (
-                <button onClick={() => login()}>Sign in with Google 🚀 </button>
-            )}
         </div>
     );
 }
-export default Homepage;
+export default HomePage;
