@@ -36,7 +36,7 @@ const HomePage = (props) => {
                       delay: 40,
                       strings: [
                         'Leave your ID at home!',
-                        'just bring your pseudo pass!',
+                        'Just bring your pseudo pass!',
                       ],
                     }}
                   />
