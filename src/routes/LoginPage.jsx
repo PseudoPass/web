@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/LoginPage.css";
-import "./styles/HomePage.css"
+import "./styles/HomePage.scss"
 import GoogleLoginButton from "../components/Login/GoogleLoginButton";
 
 const LoginPage = (props) => {
