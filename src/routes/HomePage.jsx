@@ -29,13 +29,13 @@ const HomePage = (props) => {
               </div>
               <div className="right_content">
                 <Title level={2}>
-                  PseudoPass believes there is a better way
+                  Leave your ID at home,
+                  <br /> just bring your pseudo pass!
                 </Title>
                 <Paragraph style={{ fontSize: 20 }}>
-                  You don’t know you… until you pseudo pass through.<br></br>{' '}
-                  Your identity is eternal, Pseudo Pass it on the blockchain.
-                  <br></br> Can you really trust yourself, if you aren’t
-                  PseudoPassed?
+                  Once you generate your DID and Issue a credentials,
+                  <br /> you will be given a pseudo pass, Mobile digital <br />{' '}
+                  identification card secured by blockchain.
                 </Paragraph>
                 <div className={'login-text'}>
                   Login using <b>SJSU</b> Credentials
@@ -52,11 +52,21 @@ const HomePage = (props) => {
               <div className="left_content">
                 <Title level={2}>Pseudo Pass 101</Title>
                 <Paragraph style={{ fontSize: 17 }}>
-                  The quick brown fox jumps over the lazy dog. Lorem ipsum dolor
-                  sit amet, consectetur adipiscing elit. Fusce viverra, ligula a
-                  efficitur vestibulum, ipsum tellus bibendum lorem, quis
-                  euismod enim ante vel nibh. Suspendisse potenti. Sed eget
-                  mauris blandit, malesuada eros et, dignissim
+                  Pseudo Pass is a project aimed at providing a digital form of
+                  identification for users. The project utilizes decentralized
+                  identifiers (DIDs) and verifiable credentials (VCs) to create
+                  a secure and private digital identity for users. A DID is a
+                  new type of identifier that allows for a verifiable,
+                  decentralized digital identity. VCs are a sub-technology used
+                  to express credentials on the Web in a cryptographically
+                  secure, privacy-preserving, and machine-verifiable manner. The
+                  Dock.io API is used to support the creation of DIDs and VCs.
+                  Pseudo Pass has the potential to bring a lot of positive
+                  changes globally as it gives users control over their own
+                  identity and protects their privacy. By converting physical
+                  forms of identification to digital forms, the project can save
+                  time and money for busy individuals and benefit society
+                  economically.
                 </Paragraph>
               </div>
               <div className="right_content">
@@ -83,7 +93,17 @@ const HomePage = (props) => {
               <div className="right_content" style={{ paddingRight: '20rem' }}>
                 <Title level={2}>DIDs</Title>
                 <Paragraph style={{ fontSize: 17 }}>
-                  The quick brown fox jumps over the lazy dog.
+                  DIDs (Decentralized Identifiers) are a type of digital
+                  identifier that provide secure and private digital identities.
+                  Unlike traditional digital identities, DIDs are managed by the
+                  individual and stored on a decentralized platform, usually a
+                  blockchain, making them tamper-proof and secure. DIDs give the
+                  individual control over their digital identity and allow for
+                  self-sovereign identity. They can be used with verifiable
+                  credentials to authenticate and verify information, making
+                  them useful for secure online transactions and access to
+                  physical premises. The W3C has made DIDs a standard for
+                  decentralized identity.
                 </Paragraph>
               </div>
             </div>
@@ -91,11 +111,17 @@ const HomePage = (props) => {
               <div className="left_content">
                 <Title level={2}>Pseudo Pass 101</Title>
                 <Paragraph style={{ fontSize: 17 }}>
-                  The quick brown fox jumps over the lazy dog. Lorem ipsum dolor
-                  sit amet, consectetur adipiscing elit. Fusce viverra, ligula a
-                  efficitur vestibulum, ipsum tellus bibendum lorem, quis
-                  euismod enim ante vel nibh. Suspendisse potenti. Sed eget
-                  mauris blandit, malesuada eros et, dignissim
+                  Verifiable Credentials (VCs) are secure digital certificates
+                  that represent claims made by individuals or organizations.
+                  They provide a tamper-proof way to verify information and are
+                  signed by the issuer to create a digital signature. VCs are
+                  used for identity management and can store information such as
+                  name, address, and qualifications. They are portable and can
+                  be used across different systems, making them a useful tool
+                  for secure identity systems. VCs follow the W3C Verifiable
+                  Credentials Data Model, which includes components such as
+                  subject, issuer, claim, and signature to create a secure
+                  representation of information that can verify claims.
                 </Paragraph>
               </div>
               <div className="right_content">
