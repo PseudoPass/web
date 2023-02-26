@@ -6,6 +6,7 @@ import { Breadcrumb, Layout, Typography, theme } from 'antd';
 import Logo from './img/logo.png';
 import FirstImg from './img/firstImg.png';
 import GoogleLoginButton from '../components/Login/GoogleLoginButton';
+import { AiFillPlayCircle } from 'react-icons/ai';
 
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
@@ -40,6 +41,11 @@ const HomePage = (props) => {
                   Login using <b>SJSU</b> Credentials
                 </div>
                 <GoogleLoginButton setProfile={setProfile} />
+                <a href={'https://www.example.com/watch-demo'}>
+                  <div className={'login-text'}>
+                    Watch demo video to learn more <AiFillPlayCircle />
+                  </div>
+                </a>
               </div>
             </div>
             <div className="blue-site-layout-content">
