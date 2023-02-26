@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { Carousel, CarouselItem } from 'react-bootstrap';
 import './styles/HomePage.scss';
-import Animation from '../components/Animation/Animation';
 import { Breadcrumb, Layout, Typography, theme } from 'antd';
 import Logo from './img/logo.png';
 import FirstImg from './img/firstImg.png';
 import GoogleLoginButton from '../components/Login/GoogleLoginButton';
 import { AiFillPlayCircle } from 'react-icons/ai';
+import Typewriter from 'typewriter-effect';
 
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
@@ -29,8 +29,17 @@ const HomePage = (props) => {
               </div>
               <div className="right_content">
                 <Title level={2}>
-                  Leave your ID at home,
-                  <br /> just bring your pseudo pass!
+                  <Typewriter
+                    options={{
+                      autoStart: true,
+                      loop: true,
+                      delay: 40,
+                      strings: [
+                        'Leave your ID at home!',
+                        'just bring your pseudo pass!',
+                      ],
+                    }}
+                  />
                 </Title>
                 <Paragraph style={{ fontSize: 20 }}>
                   Once you generate your DID and Issue a credentials,
@@ -109,7 +118,7 @@ const HomePage = (props) => {
             </div>
             <div className="blue-site-layout-content">
               <div className="left_content">
-                <Title level={2}>Pseudo Pass 101</Title>
+                <Title level={2}>VCs</Title>
                 <Paragraph style={{ fontSize: 17 }}>
                   Verifiable Credentials (VCs) are secure digital certificates
                   that represent claims made by individuals or organizations.
