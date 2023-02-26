@@ -1,0 +1,68 @@
+.content {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+}
+
+.login-button {
+  width: 300px;
+}
+
+.logo-text {
+  margin-top: 24px;
+}
+
+.google-icon {
+  width: 24px;
+  margin-right: 12px;
+}
+
+.logo {
+  float: left;
+  max-width: 13rem;
+  height: auto;
+}
+
+.green-site-layout-content {
+  min-height: 33rem;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  background: #dfffd8;
+  display: flex;
+  justify-content: center;
+
+  .left_content {
+    max-width: 35rem;
+  }
+
+  .right_content {
+    padding-left: 4rem;
+  }
+
+  .firstImg {
+    max-width: 30rem;
+    height: auto;
+  }
+}
+
+.blue-site-layout-content {
+  min-height: 28rem;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  background: #defcf9;
+  display: flex;
+  justify-content: center;
+
+  .left_content {
+    max-width: 35rem;
+  }
+
+  .right_content {
+    padding-left: 8rem;
+  }
+}
+
+iframe {
+  width: 350px;
+  height: 350px;
+}
