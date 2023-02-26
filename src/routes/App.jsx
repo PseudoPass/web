@@ -1,6 +1,6 @@
 import './styles/HomePage.scss';
 import React, { useState } from 'react';
-import LoginPage from './LoginPage';
+import Pass from './Pass';
 import IDCardPage from './IDCardPage';
 import { Route, Routes } from 'react-router-dom';
 import LoginSuccess from '../components/Login/LoginSuccess';
@@ -29,7 +29,7 @@ const App = () => {
             <Route
               exact
               path={'/login'}
-              element={<LoginPage setProfile={setProfile} />}
+              element={<Pass setProfile={setProfile} />}
             />
             <Route path={'/login/success'} element={<LoginSuccess />} />
             <Route

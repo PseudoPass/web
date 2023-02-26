@@ -30,7 +30,7 @@ function NavigationBar(props) {
         <button onClick={() => setIsNavbarVisible(false)}>
           {!profile ? (
             <Link to={'/login'} className={'nb-link'}>
-              Login
+              My Pass
             </Link>
           ) : (
             <Link to={'/logout'} className={'nb-link'} onClick={handleLogout}>
