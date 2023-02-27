@@ -94,7 +94,7 @@ const HomePage = (props) => {
             </div>
             <div className="layout-content" style={{ background: '#dfffd8' }}>
               <div className="right_content">
-              <iframe
+                <iframe
                   style={{ border: 'none' }}
                   title="Finger Print"
                   src="https://rive.app/s/LXIEKoNUAkO9hNuPmrPsdA/embed"
@@ -102,13 +102,19 @@ const HomePage = (props) => {
                 />
               </div>
               <div className="left_content">
-                <Title level={2}>Pseudo Pass 101</Title>
+                <Title level={2}>DIDs</Title>
                 <Paragraph style={{ fontSize: 17 }}>
-                  The quick brown fox jumps over the lazy dog. Lorem ipsum dolor
-                  sit amet, consectetur adipiscing elit. Fusce viverra, ligula a
-                  efficitur vestibulum, ipsum tellus bibendum lorem, quis
-                  euismod enim ante vel nibh. Suspendisse potenti. Sed eget
-                  mauris blandit, malesuada eros et, dignissim
+                  DIDs (Decentralized Identifiers) are a type of digital
+                  identifier that provide secure and private digital identities.
+                  Unlike traditional digital identities, DIDs are managed by the
+                  individual and stored on a decentralized platform, usually a
+                  blockchain, making them tamper-proof and secure. DIDs give the
+                  individual control over their digital identity and allow for
+                  self-sovereign identity. They can be used with verifiable
+                  credentials to authenticate and verify information, making
+                  them useful for secure online transactions and access to
+                  physical premises. The W3C has made DIDs a standard for
+                  decentralized identity.
                 </Paragraph>
               </div>
             </div>
