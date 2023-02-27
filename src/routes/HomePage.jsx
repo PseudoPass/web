@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { Carousel, CarouselItem } from 'react-bootstrap';
 import './styles/HomePage.scss';
-import { Breadcrumb, Layout, Typography, theme } from 'antd';
+import { Layout, Typography } from 'antd';
 import Logo from './img/logo.png';
 import FirstImg from './img/firstImg.png';
 import GoogleLoginButton from '../components/Login/GoogleLoginButton';
@@ -23,11 +22,11 @@ const HomePage = (props) => {
         </Header>
         <Content>
           <div className="content">
-            <div className="green-site-layout-content">
+            <div className="first-layout-content">
               <div className="left_content">
                 <img src={FirstImg} className="firstImg" />
               </div>
-              <div className="right_content">
+              <div className="fist_right_content">
                 <Title level={2}>
                   <Typewriter
                     options={{
@@ -46,18 +45,24 @@ const HomePage = (props) => {
                   <br /> you will be given a pseudo pass, Mobile digital <br />{' '}
                   identification card secured by blockchain.
                 </Paragraph>
-                <div className={'login-text'}>
-                  Login using <b>SJSU</b> Credentials
+
+                <div className="loginPart">
+                  <Paragraph
+                    style={{
+                      fontSize: 17,
+                      display: 'flex',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    Login using&nbsp;<b>SJSU</b>&nbsp;Credentials
+                  </Paragraph>
                 </div>
-                <GoogleLoginButton setProfile={setProfile} />
-                <a href={'https://www.example.com/watch-demo'}>
-                  <div className={'login-text'}>
-                    Watch demo video to learn more <AiFillPlayCircle />
-                  </div>
-                </a>
+                <div className="googleBtn">
+                  <GoogleLoginButton setProfile={setProfile} />
+                </div>
               </div>
             </div>
-            <div className="blue-site-layout-content">
+            <div className="layout-content" style={{ background: '#defcf9' }}>
               <div className="left_content">
                 <Title level={2}>Pseudo Pass 101</Title>
                 <Paragraph style={{ fontSize: 17 }}>
@@ -87,11 +92,8 @@ const HomePage = (props) => {
                 />
               </div>
             </div>
-            <div
-              className="green-site-layout-content"
-              style={{ minHeight: '28rem' }}
-            >
-              <div className="left_content" style={{ paddingRight: '6rem' }}>
+            <div className="layout-content" style={{ background: '#dfffd8' }}>
+              <div className="right_content">
                 <iframe
                   style={{ border: 'none' }}
                   title="Finger Print"
@@ -99,7 +101,7 @@ const HomePage = (props) => {
                   allowFullScreen
                 />
               </div>
-              <div className="right_content" style={{ paddingRight: '20rem' }}>
+              <div className="left_content">
                 <Title level={2}>DIDs</Title>
                 <Paragraph style={{ fontSize: 17 }}>
                   DIDs (Decentralized Identifiers) are a type of digital
@@ -116,7 +118,7 @@ const HomePage = (props) => {
                 </Paragraph>
               </div>
             </div>
-            <div className="blue-site-layout-content">
+            <div className="layout-content" style={{ background: '#defcf9' }}>
               <div className="left_content">
                 <Title level={2}>VCs</Title>
                 <Paragraph style={{ fontSize: 17 }}>
@@ -148,51 +150,6 @@ const HomePage = (props) => {
           @ copyright 2023 by Pseudo Pass
         </Footer>
       </Layout>
-
-      {/* <div className="main-container">
-        <div className="logo-text">Pseudo Pass</div>
-        <div className="catchphrase">
-          PseudoPass believes there is a better way
-        </div>
-        <div className="carousel">
-          <Carousel>
-            <CarouselItem>
-              You don’t know you… until you pseudo pass through.
-            </CarouselItem>
-            <CarouselItem>
-              Your identity is eternal, Pseudo Pass it on the blockchain.
-            </CarouselItem>
-            <CarouselItem>
-              Can you really trust yourself, if you aren’t PseudoPassed?
-            </CarouselItem>
-          </Carousel>
-        </div>
-
-        <iframe
-          style={{ border: 'none' }}
-          title="pseudo pass"
-          width="540"
-          height="540"
-          src="https://rive.app/s/UCwCVZW5mECdeVn6dWKQoQ/embed"
-          allowFullScreen
-        />
-        <iframe
-          style={{ border: 'none' }}
-          title="Finger Print"
-          width="500"
-          height="500"
-          src="https://rive.app/s/LXIEKoNUAkO9hNuPmrPsdA/embed"
-          allowFullScreen
-        />
-        <iframe
-          style={{ border: 'none' }}
-          title="server"
-          width="700"
-          height="700"
-          src="https://rive.app/s/dlQ_86dYH06ZyXgR9BSd_g/embed"
-          allowFullScreen
-        />
-      </div> */}
     </>
   );
 };

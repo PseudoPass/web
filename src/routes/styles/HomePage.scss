@@ -1,68 +1,123 @@
+// FOR DESKTOP AND MOBILE
 .content {
   flex-direction: column;
   justify-content: center;
   display: flex;
 }
-
 .login-button {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
 }
-
-.logo-text {
-  margin-top: 24px;
-}
-
 .google-icon {
   width: 24px;
   margin-right: 12px;
 }
-
-.logo {
-  float: left;
-  max-width: 13rem;
-  height: auto;
+.loginPart {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
 }
 
-.green-site-layout-content {
-  min-height: 33rem;
-  padding-top: 3rem;
-  padding-left: 3rem;
-  background: #dfffd8;
-  display: flex;
+.googleBtn {
   justify-content: center;
+  display: flex;
+  padding-bottom: 2rem;
+}
 
-  .left_content {
-    max-width: 35rem;
-  }
-
-  .right_content {
-    padding-left: 4rem;
-  }
-
-  .firstImg {
-    max-width: 30rem;
+//DESKTOP VER
+@media screen and (min-width: 769px) {
+  .logo {
+    float: left;
+    max-width: 13rem;
     height: auto;
   }
-}
 
-.blue-site-layout-content {
-  min-height: 28rem;
-  padding-top: 3rem;
-  padding-left: 3rem;
-  background: #defcf9;
-  display: flex;
-  justify-content: center;
+  .first-layout-content {
+    min-height: 33rem;
+    padding: 3rem;
+    background: #dfffd8;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
 
-  .left_content {
-    max-width: 35rem;
+    .left_content {
+      max-width: 35rem;
+    }
+
+    .firstImg {
+      max-width: 30rem;
+      height: auto;
+    }
+    
+    .loginPart {
+      margin-top: 3rem;
+    }
   }
 
-  .right_content {
-    padding-left: 8rem;
+  .layout-content {
+    min-height: 28rem;
+    padding-top: 3rem;
+    padding: 3rem;
+    background: #defcf9;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+
+    .left_content {
+      max-width: 35rem;
+    }
+  }
+
+  iframe {
+    width: 350px;
+    height: 350px;
   }
 }
 
-iframe {
-  width: 350px;
-  height: 350px;
+// MOBILE VER
+@media screen and (max-width: 768px) {
+  .logo {
+    max-width: 10rem;
+  }
+
+  .first-layout-content {
+    padding: 1rem 3rem;
+    background: #dfffd8;
+
+    .left_content {
+      max-width: 100%;
+      justify-content: center;
+      display: flex;
+    }
+
+    .fist_right_content {
+      padding-left: 2rem;
+      margin-top: 5rem;
+      text-align: center;
+    }
+
+    .firstImg {
+      width: 25rem;
+    }
+  }
+
+  .layout-content {
+    padding: 1rem 3rem;
+    gap: 2rem;
+
+    .left_content {
+      max-width: 100%;
+    }
+
+    .right_content {
+      justify-content: center;
+      display: flex;
+    }
+  }
+
+  iframe {
+    width: 100%;
+    height: 200px;
+    max-width: 250px;
+  }
 }
