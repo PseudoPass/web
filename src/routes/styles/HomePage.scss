@@ -24,6 +24,10 @@
   padding-bottom: 2rem;
 }
 
+.ant-typography {
+    color: white;
+}
+
 //DESKTOP VER
 @media screen and (min-width: 769px) {
   .logo {
@@ -35,7 +39,7 @@
   .first-layout-content {
     min-height: 33rem;
     padding: 3rem;
-    background: #dfffd8;
+    background: #26490B;
     display: flex;
     justify-content: center;
     gap: 5rem;
@@ -58,7 +62,7 @@
     min-height: 28rem;
     padding-top: 3rem;
     padding: 3rem;
-    background: #defcf9;
+    background: #18423E;
     display: flex;
     justify-content: center;
     gap: 5rem;
@@ -82,7 +86,7 @@
 
   .first-layout-content {
     padding: 1rem 3rem;
-    background: #dfffd8;
+    background: #26490B;
 
     .left_content {
       max-width: 100%;

@@ -15,7 +15,7 @@ const HomePage = (props) => {
   return (
     <>
       <Layout className="layout">
-        <Header style={{ background: '#DFFFD8', height: '150px' }}>
+        <Header style={{ background: '#26490B', height: '150px' }}>
           <div style={{ marginTop: '44px' }}>
             <img className="logo" src={Logo} alt="logo" />
           </div>
@@ -62,9 +62,11 @@ const HomePage = (props) => {
                 </div>
               </div>
             </div>
-            <div className="layout-content" style={{ background: '#defcf9' }}>
+            <div className="layout-content" style={{ background: '#18423E' }}>
               <div className="left_content">
-                <Title level={2}>Pseudo Pass 101</Title>
+                <Title level={2} style={{ color: 'white' }}>
+                  Pseudo Pass 101
+                </Title>
                 <Paragraph style={{ fontSize: 17 }}>
                   Pseudo Pass is a project aimed at providing a digital form of
                   identification for users. The project utilizes decentralized
@@ -92,7 +94,7 @@ const HomePage = (props) => {
                 />
               </div>
             </div>
-            <div className="layout-content" style={{ background: '#dfffd8' }}>
+            <div className="layout-content" style={{ background: '#26490B' }}>
               <div className="right_content">
                 <iframe
                   style={{ border: 'none' }}
@@ -102,7 +104,9 @@ const HomePage = (props) => {
                 />
               </div>
               <div className="left_content">
-                <Title level={2}>DIDs</Title>
+                <Title level={2} style={{ color: 'white' }}>
+                  DIDs
+                </Title>
                 <Paragraph style={{ fontSize: 17 }}>
                   DIDs (Decentralized Identifiers) are a type of digital
                   identifier that provide secure and private digital identities.
@@ -118,9 +122,11 @@ const HomePage = (props) => {
                 </Paragraph>
               </div>
             </div>
-            <div className="layout-content" style={{ background: '#defcf9' }}>
+            <div className="layout-content" style={{ background: '#18423E' }}>
               <div className="left_content">
-                <Title level={2}>VCs</Title>
+                <Title level={2} style={{ color: 'white' }}>
+                  VCs
+                </Title>
                 <Paragraph style={{ fontSize: 17 }}>
                   Verifiable Credentials (VCs) are secure digital certificates
                   that represent claims made by individuals or organizations.
@@ -146,7 +152,7 @@ const HomePage = (props) => {
             </div>
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center', background: '#DFFFD8' }}>
+        <Footer style={{ textAlign: 'center', background: '#26490B' }}>
           @ copyright 2023 by Pseudo Pass
         </Footer>
       </Layout>

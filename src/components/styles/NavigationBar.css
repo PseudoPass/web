@@ -8,7 +8,7 @@
     align-items: center;
     height: 50px;
     width: 50px;
-    background-color: #DFFFD8;
+    background-color: #26490B;
     margin: 50px;
     padding: 0 20gpx;
   }
@@ -41,7 +41,7 @@
     right: 10px;
     height: 100%;
     width: 100px;
-    background-color: #DFFFD8;
+    background-color: #26490B;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
   }
