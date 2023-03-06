@@ -42,7 +42,7 @@ const GoogleLoginButton = (props) => {
       className={'login-button'}
       variant="outline-dark"
       onClick={() => handleGoogleLogin()}
-      style={{ color: 'white' }}
+      style={{ color: 'white', borderColor: 'white' }}
     >
       <svg
         version="1.1"
