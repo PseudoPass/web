@@ -1,7 +1,7 @@
 import './styles/HomePage.scss';
 import React, { useState } from 'react';
 import Pass from './Pass';
-import IDCardPage from './IDCardPage';
+import IDCardPage from '../components/IdentificationCard/IDCardPage.jsx';
 import { Route, Routes } from 'react-router-dom';
 import LoginSuccess from '../components/Login/LoginSuccess';
 import HomePage from './HomePage';
