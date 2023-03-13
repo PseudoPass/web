@@ -25,7 +25,7 @@ const GoogleLoginButton = (props) => {
             })
             .then((res) => {
               setProfile(res.data);
-              navigate('/id');
+              navigate('/upload');
             })
             .catch((err) => {
               console.log(err);
