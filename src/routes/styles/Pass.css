@@ -1,3 +1,117 @@
-.login-text {
-    margin: 42px 24px 24px;
-}
+body {
+    background-color: #26490B;
+    margin: 0; /* Add this to remove default margin */
+  }
+  
+  .pass-page .main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Change min-height to height */
+    background-color: #26490B;
+    flex-direction: column; /* Add this */
+  }
+  
+  .pass-page .pass-container {
+    width: 450px;
+    height: 600px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #FFC72C;
+    margin: auto; /* Add this */
+  }
+  
+  .pass-page .pass-header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+    background-color: #FFC72C;
+    color: #fff;
+  }
+  
+  .pass-page .pass-header-left-title {
+    color: #fff;
+  }
+  .pass-page .pass-header-left-subtitle {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #fff;
+  }
+  
+  .pass-page .pass-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #005596;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    flex: 1;
+  }
+  
+  .user-image {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 50%;
+  }
+  
+  .pass-page .pass-body-left-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .pass-page .pass-body-left-subtitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .pass-page .pass-body-right-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .pass-page .pass-body-right-subtitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .pass-page .pass-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 20px;
+    background-color: #FFC72C;
+    color: #000;
+  }
+  
+  .pass-page .pass-footer-left-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .pass-page .pass-footer-left-subtitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .pass-page .pass-footer-right-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .pass-page .pass-footer-right-subtitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  

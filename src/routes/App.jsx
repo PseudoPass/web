@@ -32,9 +32,10 @@ const App = () => {
               element={<Pass setProfile={setProfile} />}
             />
             <Route path={'/login/success'} element={<LoginSuccess />} />
+            <Route exact path={'/id'} element={<Pass profile={profile} />} />
             <Route
               exact
-              path={'id'}
+              path={'/upload'}
               element={<IDCardPage profile={profile} />}
             />
           </Routes>

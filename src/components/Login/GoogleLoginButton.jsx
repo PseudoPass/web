@@ -25,7 +25,7 @@ const GoogleLoginButton = (props) => {
             })
             .then((res) => {
               setProfile(res.data);
-              navigate('/id');
+              navigate('/upload');
             })
             .catch((err) => {
               console.log(err);
@@ -42,7 +42,7 @@ const GoogleLoginButton = (props) => {
       className={'login-button'}
       variant="outline-dark"
       onClick={() => handleGoogleLogin()}
-      style={{ color: 'white' }}
+      style={{ color: 'white', borderColor: 'white' }}
     >
       <svg
         version="1.1"

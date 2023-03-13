@@ -1,4 +1,3 @@
-import IdentificationCard from './IdentificationCard';
 import styles from './IDCardPage.module.scss';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +6,7 @@ import { Button, Input } from 'antd';
 import HeaderLogo from '../HeaderLogo/HeaderLogo';
 
 const ImgUpload = ({ onChange, src }) => (
-  <label for="photo-upload" className={styles.customFileUpload}>
+  <label htmlfor="photo-upload" className={styles.customFileUpload}>
     <div className={styles.imgWrap}>
       <div className={styles.imgUpload} style={{ height: '200px' }}>
         <img className={styles.img} for="photo-upload" src={src} />
@@ -25,7 +24,7 @@ const Edit = ({ onSubmit, children }) => (
   </div>
 );
 
-const Profile = () => {
+const CardProfile = () => {
   const [imagePreviewUrl, setImagePreviewUrl] = useState(
     'https://github.com/OlgaKoplik/CodePen/blob/master/profile.jpg?raw=true'
   );
@@ -35,18 +34,19 @@ const Profile = () => {
   const photoUpload = (e) => {
     e.preventDefault();
     const reader = new FileReader();
-    const newFile = e.target.files[0];
+    const file = e.target.files[0];
     reader.onloadend = () => {
-      setFile(newFile);
+      setFile(file);
       setImagePreviewUrl(reader.result);
     };
-    reader.readAsDataURL(newFile);
+    reader.readAsDataURL(file);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let activeP = active === 'edit' ? 'profile' : 'edit';
     setActive(activeP);
+    alert('clicked');
   };
 
   return (
@@ -72,7 +72,6 @@ const TypeId = () => {
   return (
     <div className={styles.upload} style={{ marginTop: '20px', gap: '5px' }}>
       <Input
-       
         placeholder="SJSU ID Number"
         required
         onChange={(e) => setTypedId(e.target.value)}
@@ -104,7 +103,7 @@ const IDCardPage = (props) => {
         <br></br>Please upload your profile image and type your student ID
       </Paragraph>
 
-      <Profile />
+      <CardProfile />
       <TypeId />
     </div>
   );
