@@ -60,6 +60,18 @@ const HomePage = (props) => {
                 <div className="googleBtn">
                   <GoogleLoginButton setProfile={setProfile} />
                 </div>
+                <a href="https://example.com/demo-video">
+                  <Paragraph
+                    style={{
+                      fontSize: 17,
+                      display: 'flex',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    Watch demo video&nbsp;
+                    <AiFillPlayCircle size="32" />
+                  </Paragraph>
+                </a>
               </div>
             </div>
             <div className="layout-content" style={{ background: '#18423E' }}>
