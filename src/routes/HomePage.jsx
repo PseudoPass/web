@@ -15,7 +15,7 @@ const HomePage = (props) => {
   return (
     <>
       <Layout className="layout">
-        <Header style={{ background: '#26490B', height: '150px' }}>
+        <Header style={{ backgroundColor: '#26490B', height: '150px' }}>
           <div style={{ marginTop: '44px' }}>
             <img className="logo" src={Logo} alt="logo" />
           </div>
@@ -164,7 +164,9 @@ const HomePage = (props) => {
             </div>
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center', background: '#26490B' }}>
+        <Footer
+          style={{ textAlign: 'center', background: '#26490B', color: '#fff' }}
+        >
           @ copyright 2023 by Pseudo Pass
         </Footer>
       </Layout>

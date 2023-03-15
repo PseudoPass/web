@@ -1,6 +1,7 @@
 import './styles/HomePage.scss';
 import React, { useState } from 'react';
 import Pass from './Pass';
+import IDCardPage from '../components/IdentificationCard/IDCardPage.jsx';
 import { Route, Routes } from 'react-router-dom';
 import LoginSuccess from '../components/Login/LoginSuccess';
 import HomePage from './HomePage';
@@ -31,6 +32,12 @@ const App = () => {
               element={<Pass setProfile={setProfile} />}
             />
             <Route path={'/login/success'} element={<LoginSuccess />} />
+            <Route exact path={'/id'} element={<Pass profile={profile} />} />
+            <Route
+              exact
+              path={'/upload'}
+              element={<IDCardPage profile={profile} />}
+            />
           </Routes>
         </div>
       </div>
