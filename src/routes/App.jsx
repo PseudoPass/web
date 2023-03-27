@@ -7,6 +7,7 @@ import LoginSuccess from '../components/Login/LoginSuccess';
 import HomePage from './HomePage';
 import NavigationBar from '../components/NavigationBar/NavigationBar';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import Dashboard from './Dashboard';
 
 const { Header, Content, Footer } = Layout;
 
@@ -29,15 +30,16 @@ const App = () => {
             <Route
               exact
               path={'/login'}
-              element={<Pass setProfile={setProfile} />}
+              element={<IDCardPage setProfile={setProfile} />}
             />
             <Route path={'/login/success'} element={<LoginSuccess />} />
-            <Route exact path={'/id'} element={<Pass profile={profile} />} />
             <Route
               exact
               path={'/upload'}
               element={<IDCardPage profile={profile} />}
             />
+            <Route exact path={'/dashboard'} element={<Dashboard />} />
+            <Route exact path={'/id'} element={<Pass profile={profile} />} />
           </Routes>
         </div>
       </div>

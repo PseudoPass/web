@@ -1,0 +1,40 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.profile img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.pseudo-pass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.generate-vc-button {
+    background-color: black;
+    color: white;
+    border-color: black;
+    transition: background-color 0.3s, border-color 0.3s;
+  
+    &:hover {
+      background-color: #444;
+      border-color: #444;
+    }
+}
