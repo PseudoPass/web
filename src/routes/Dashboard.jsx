@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 import styles from './Dashboard.module.scss';
@@ -18,6 +18,34 @@ const Dashboard = () => {
   const handleViewID = () => {
     navigate('/id');
   };
+
+  useEffect(() => {
+    // Create the slug from the DID
+    const slug = `dashboard-${DID}`;
+
+    // Send the slug to the backend
+    const sendSlugToBackend = async () => {
+      try {
+        const apiUrl = 'http://localhost:3000/api/slug'; // Update this URL to the actual backend API route
+
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ slug }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to send slug to the backend');
+        }
+      } catch (error) {
+        console.error('Error sending slug to the backend:', error);
+      }
+    };
+
+    sendSlugToBackend();
+  }, [DID]);
 
   return (
     <div className={styles.dashboard}>
@@ -39,7 +67,7 @@ const Dashboard = () => {
             onClick={handleViewID}
             className={styles['generate-vc-button']}
           >
-            View ID
+            View Pass
           </Button>
         ) : (
           <Button
