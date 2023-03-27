@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
-import styles from './Dashboard.module.scss';
+import styles from './styles/Dashboard.module.scss';
 
 const Dashboard = () => {
   const [hasGeneratedVC, setHasGeneratedVC] = useState(false);
