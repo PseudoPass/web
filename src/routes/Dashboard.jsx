@@ -7,7 +7,8 @@ const Dashboard = () => {
   const [hasGeneratedVC, setHasGeneratedVC] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { displayName, DID, profilePhoto, SJSUID } = location.state || {};
+  const { displayName, DID, profilePhoto, SJSUID, googleId } =
+    location.state || {};
 
   const handleGenerateVC = () => {
     // Add code to generate VC (Verifiable Credential) here.
@@ -20,20 +21,19 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    // Create the slug from the DID
-    const slug = `dashboard-${DID}`;
+    // Create the slug from the Google ID
+    const slug = `dashboard-${googleId}`;
 
     // Send the slug to the backend
     const sendSlugToBackend = async () => {
       try {
-        const apiUrl = 'http://localhost:3000/api/slug'; // Update this URL to the actual backend API route
+        const apiUrl = `http://localhost:3000/api/slug?slug=${slug}`; // Update this URL to the actual backend API route
 
         const response = await fetch(apiUrl, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ slug }),
         });
 
         if (!response.ok) {
@@ -45,7 +45,7 @@ const Dashboard = () => {
     };
 
     sendSlugToBackend();
-  }, [DID]);
+  }, [googleId]);
 
   return (
     <div className={styles.dashboard}>

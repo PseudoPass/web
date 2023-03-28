@@ -75,8 +75,6 @@ const TypeId = () => {
     e.preventDefault();
     try {
       // Navigate to the Dashboard component
-      navigate('/dashboard');
-      // Navigate to the Dashboard component
       const apiUrl = 'http:localhost:3000';
 
       // Send a POST request to the backend with the typedId as payload
@@ -93,6 +91,9 @@ const TypeId = () => {
         const responseData = await response.json();
         // You can update the state or navigate to the next page here based on the response
         console.log(responseData);
+
+        // Navigate to the Dashboard component
+        navigate('/dashboard');
       } else {
         throw new Error('Failed to submit SJSU ID');
       }
