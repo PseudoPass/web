@@ -56,11 +56,11 @@
   
   .navbar-content button {
     display: block;
-    width: 100%;
+    width: 100vh;
     padding: 10px;
     border: none;
     text-align: left;
-    background-color: transparent;
+    background-color: #2d5310;
     cursor: pointer;
     font-size: 16px;
   }
