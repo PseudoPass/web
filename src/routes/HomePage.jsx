@@ -23,10 +23,10 @@ const HomePage = (props) => {
         <Content>
           <div className="content">
             <div className="first-layout-content">
-              <div className="left_content">
+              <div className="write_content">
                 <img src={FirstImg} className="firstImg" />
               </div>
-              <div className="fist_right_content">
+              <div className="first_image_content">
                 <Title level={2}>
                   <Typewriter
                     options={{
@@ -75,7 +75,7 @@ const HomePage = (props) => {
               </div>
             </div>
             <div className="layout-content" style={{ background: '#18423E' }}>
-              <div className="left_content">
+              <div className="write_content">
                 <Title level={2} style={{ color: 'white' }}>
                   Pseudo Pass 101
                 </Title>
@@ -97,7 +97,7 @@ const HomePage = (props) => {
                   economically.
                 </Paragraph>
               </div>
-              <div className="right_content">
+              <div className="image_content">
                 <iframe
                   style={{ border: 'none' }}
                   title="pseudo pass"
@@ -107,7 +107,7 @@ const HomePage = (props) => {
               </div>
             </div>
             <div className="layout-content" style={{ background: '#26490B' }}>
-              <div className="right_content">
+              <div className="image_content">
                 <iframe
                   style={{ border: 'none' }}
                   title="Finger Print"
@@ -115,7 +115,7 @@ const HomePage = (props) => {
                   allowFullScreen
                 />
               </div>
-              <div className="left_content">
+              <div className="write_content">
                 <Title level={2} style={{ color: 'white' }}>
                   DIDs
                 </Title>
@@ -135,7 +135,7 @@ const HomePage = (props) => {
               </div>
             </div>
             <div className="layout-content" style={{ background: '#18423E' }}>
-              <div className="left_content">
+              <div className="write_content">
                 <Title level={2} style={{ color: 'white' }}>
                   VCs
                 </Title>
@@ -153,7 +153,7 @@ const HomePage = (props) => {
                   representation of information that can verify claims.
                 </Paragraph>
               </div>
-              <div className="right_content">
+              <div className="image_content">
                 <iframe
                   style={{ border: 'none' }}
                   title="server"
