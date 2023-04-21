@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Paragraph from 'antd/es/typography/Paragraph';
 import { Button, Input } from 'antd';
 import HeaderLogo from '../HeaderLogo/HeaderLogo';
-
+import axios from 'axios';
 // const ImgUpload = ({ onChange, src }) => (
 //   <label htmlfor="photo-upload" className={styles.customFileUpload}>
 //     <div className={styles.imgWrap}>
@@ -71,35 +71,23 @@ const TypeId = () => {
   //     setMsg('');
   //   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      // Navigate to the Dashboard component
-      const apiUrl = 'http:localhost:3000';
+    // Navigate to the Dashboard component
 
-      // Send a POST request to the backend with the typedId as payload
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ sjsuId: typedId }),
-      });
-
-      // Check if the request was successful
-      if (response.ok) {
-        const responseData = await response.json();
-        // You can update the state or navigate to the next page here based on the response
-        console.log(responseData);
-
+    // Send a POST request to the backend with the typedId as payload
+    axios.post("http://localhost:4000/user/studentid", {
+      sjsuId: typedId,
+    }, {withCredentials: true})
+      .then( (result) => {
         // Navigate to the Dashboard component
         navigate('/dashboard');
-      } else {
-        throw new Error('Failed to submit SJSU ID');
-      }
-    } catch (error) {
-      console.error('Error submitting SJSU ID:', error);
-    }
+  })
+      .catch( (err) => {
+        console.error(err)
+  })
+
+
   };
 
   return (
@@ -117,7 +105,7 @@ const TypeId = () => {
   );
 };
 
-const IDCardPage = (props) => {
+const OnboardingPage = (props) => {
   const { profile } = props;
   const navigate = useNavigate();
 
@@ -131,7 +119,7 @@ const IDCardPage = (props) => {
         className={styles.header}
         style={{ fontSize: 25, marginTop: '30px' }}
       >
-        Hi {profile.displayName}! <br></br>You are login with {profile.email}{' '}
+        Hi {profile.displayName}! <br></br>You are logged in with: {profile.email}{' '}
         <br></br>
         {/* <br></br>Please upload your profile image and type your student ID */}
         <br></br>Please type your student ID
@@ -143,4 +131,4 @@ const IDCardPage = (props) => {
   );
 };
 
-export default IDCardPage;
+export default OnboardingPage;
