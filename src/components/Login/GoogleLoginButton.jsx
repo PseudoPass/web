@@ -25,7 +25,11 @@ const GoogleLoginButton = (props) => {
             })
             .then((res) => {
               setProfile(res.data);
-              navigate('/upload');
+              if(!res.data.studentId) {
+                navigate('/onboarding');
+              } else {
+                navigate('/dashboard');
+              }
             })
             .catch((err) => {
               console.log(err);
