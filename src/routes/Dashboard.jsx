@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 import styles from './styles/Dashboard.module.scss';
+import axios from "axios";
 
 const Dashboard = () => {
   const [hasGeneratedVC, setHasGeneratedVC] = useState(false);
@@ -13,6 +14,13 @@ const Dashboard = () => {
   const handleGenerateVC = () => {
     // Add code to generate VC (Verifiable Credential) here.
     console.log('Generate VC button clicked');
+    axios.post("http://localhost:4000/cred/", {}, {withCredentials: true})
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
     setHasGeneratedVC(true);
   };
 
@@ -22,29 +30,29 @@ const Dashboard = () => {
 
   useEffect(() => {
     // Create the slug from the Google ID
-    const slug = `dashboard-${googleId}`;
+    // const slug = `dashboard-${googleId}`;
 
     // Send the slug to the backend
-    const sendSlugToBackend = async () => {
-      try {
-        const apiUrl = `http://localhost:3000/api/slug?slug=${slug}`; // Update this URL to the actual backend API route
+    // const sendSlugToBackend = async () => {
+    //   try {
+    //     const apiUrl = `http://localhost:3000/api/slug?slug=${slug}`; // Update this URL to the actual backend API route
+    //
+    //     const response = await fetch(apiUrl, {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //       },
+    //     });
+    //
+    //     if (!response.ok) {
+    //       throw new Error('Failed to send slug to the backend');
+    //     }
+    //   } catch (error) {
+    //     console.error('Error sending slug to the backend:', error);
+    //   }
+    // };
 
-        const response = await fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to send slug to the backend');
-        }
-      } catch (error) {
-        console.error('Error sending slug to the backend:', error);
-      }
-    };
-
-    sendSlugToBackend();
+    // sendSlugToBackend();
   }, [googleId]);
 
   return (
