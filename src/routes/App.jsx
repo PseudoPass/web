@@ -13,7 +13,6 @@ import ApiTest from "../components/ApiTest";
 const { Header, Content, Footer } = Layout;
 
 const App = () => {
-  const [authenticated, setAuthenticated] = useState(false);
   const [profile, setProfile] = useState(null);
 
   return (
@@ -40,7 +39,7 @@ const App = () => {
               element={<OnboardingPage profile={profile} />}
             />
             <Route exact path={'/dashboard'} element={<Dashboard />} />
-            <Route exact path={'/id'} element={<Pass profile={profile} />} />
+            <Route exact path={'/id'} element={<Pass profile={profile} setProfile={setProfile}/>} />
             <Route exact path={'/test'} element={<ApiTest profile={profile} />} />
           </Routes>
         </div>
