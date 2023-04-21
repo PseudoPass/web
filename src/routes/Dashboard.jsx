@@ -6,7 +6,7 @@ import axios from "axios";
 
 const Dashboard = () => {
     const [hasGeneratedVC, setHasGeneratedVC] = useState(false);
-    const [data, setData] = useState({});
+    const [data, setData] = useState(null);
     const location = useLocation();
     const navigate = useNavigate();
     const { displayName, DID, profilePhoto, studentId, googleId } = location.state || {};

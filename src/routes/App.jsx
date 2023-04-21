@@ -1,5 +1,5 @@
 import './styles/HomePage.scss';
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Pass from './Pass';
 import OnboardingPage from '../components/IdentificationCard/OnboardingPage.jsx';
 import { Route, Routes } from 'react-router-dom';
@@ -9,17 +9,25 @@ import NavigationBar from '../components/NavigationBar/NavigationBar';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import Dashboard from './Dashboard';
 import ApiTest from "../components/ApiTest";
+import axios from "axios";
 
 const { Header, Content, Footer } = Layout;
 
 const App = () => {
   const [profile, setProfile] = useState(null);
-
+  useEffect( () => {
+    const fetchData = async () => {
+      const res = await axios.get("http://localhost:4000/user/profile", {withCredentials: true})
+      setProfile(res.data);
+      console.log(res.data)
+    }
+    fetchData();
+  }, []);
   return (
     <>
       {' '}
       <div className={'main-container'}>
-        <NavigationBar profile={profile} />
+        <NavigationBar profile={profile} setProfile={setProfile} />
         <div>
           <Routes>
             <Route

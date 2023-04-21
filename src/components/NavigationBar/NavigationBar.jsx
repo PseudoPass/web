@@ -1,17 +1,17 @@
 import '../styles/NavigationBar.css';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import React, { useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import axios from "axios";
 
 function NavigationBar(props) {
+    const navigate = useNavigate();
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
-
-  const { profile } = props;
+  const { profile, setProfile } = props;
   const handleLogout = async () => {
     // Send request to backend requesting cookies and session data be deleted
-      const res = await axios.get("http://localhost:4000/auth/logout", {withCredentials: true})
-
+      const res = await axios.get("http://localhost:4000/auth/logout", {withCredentials: true});
+      setProfile(null);
   };
 
   return (
@@ -31,12 +31,19 @@ function NavigationBar(props) {
           </Link>
         </button>
         <button onClick={() => setIsNavbarVisible(false)}>
+          {profile ? (
+              <Link to={'/id'} className={'nb-link'}>
+                  My Pass
+              </Link>
+          ) : (<></>)}
+        </button>
+        <button onClick={() => setIsNavbarVisible(false)}>
           {!profile ? (
             <Link to={'/login'} className={'nb-link'}>
-              My Pass
+              Login
             </Link>
           ) : (
-            <Link to={'/logout'} className={'nb-link'} onClick={handleLogout}>
+            <Link to={'/'} className={'nb-link'} onClick={handleLogout}>
               Logout
             </Link>
           )}
