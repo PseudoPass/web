@@ -5,13 +5,13 @@ import styles from './styles/Dashboard.module.scss';
 import axios from "axios";
 
 const Dashboard = () => {
-  const [hasGeneratedVC, setHasGeneratedVC] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
-  const { displayName, DID, profilePhoto, SJSUID, googleId } =
-    location.state || {};
+    const [hasGeneratedVC, setHasGeneratedVC] = useState(false);
+    const [data, setData] = useState({});
+    const location = useLocation();
+    const navigate = useNavigate();
+    const { displayName, DID, profilePhoto, studentId, googleId } = location.state || {};
 
-  const handleGenerateVC = () => {
+    const handleGenerateVC = () => {
     // Add code to generate VC (Verifiable Credential) here.
     console.log('Generate VC button clicked');
     axios.post("http://localhost:4000/cred/", {}, {withCredentials: true})
@@ -22,51 +22,36 @@ const Dashboard = () => {
           console.log(err);
         })
     setHasGeneratedVC(true);
-  };
+    };
 
-  const handleViewID = () => {
+    const handleViewID = () => {
     navigate('/id');
-  };
+    };
 
-  useEffect(() => {
-    // Create the slug from the Google ID
-    // const slug = `dashboard-${googleId}`;
+    useEffect( () => {
+        const fetchData = async () => {
+            const promise1 = axios.get("http://localhost:4000/user/profile", {withCredentials: true})
+            const promise2 = axios.get("http://localhost:4000/did/", {withCredentials: true})
+            const [response1, response2] = await Promise.all([promise1, promise2]);
+            setData({profile: response1.data, did: response2.data})
+            console.log(data)
+        }
+        fetchData();
+    }, []);
 
-    // Send the slug to the backend
-    // const sendSlugToBackend = async () => {
-    //   try {
-    //     const apiUrl = `http://localhost:3000/api/slug?slug=${slug}`; // Update this URL to the actual backend API route
-    //
-    //     const response = await fetch(apiUrl, {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //       },
-    //     });
-    //
-    //     if (!response.ok) {
-    //       throw new Error('Failed to send slug to the backend');
-    //     }
-    //   } catch (error) {
-    //     console.error('Error sending slug to the backend:', error);
-    //   }
-    // };
-
-    // sendSlugToBackend();
-  }, [googleId]);
-
-  return (
+    return (
+        data ?
     <div className={styles.dashboard}>
       <h1>Dashboard</h1>
       <div className={styles.profile}>
         <img
-          src={profilePhoto}
+          src={data.profile.imageUri}
           alt="Profile"
           style={{ width: '100px', height: '100px' }}
         />
-        <p>Name : {displayName}</p>
-        <p>DID: {DID}</p>
-        <p>SJSU ID:{SJSUID}</p>
+        <p>Name : {data.profile.displayName}</p>
+        <p>DID: {data.did.didStr}</p>
+        <p>SJSU ID:{data.profile.studentId}</p>
       </div>
       <div className={styles['pseudo-pass']}>
         <h3>Pseudo Pass</h3>
@@ -86,8 +71,8 @@ const Dashboard = () => {
           </Button>
         )}
       </div>
-    </div>
-  );
+    </div> : <></>
+    );
 };
 
 export default Dashboard;

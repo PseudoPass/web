@@ -2,13 +2,16 @@ import '../styles/NavigationBar.css';
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
+import axios from "axios";
 
 function NavigationBar(props) {
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
 
   const { profile } = props;
-  const handleLogout = () => {
+  const handleLogout = async () => {
     // Send request to backend requesting cookies and session data be deleted
+      const res = await axios.get("http://localhost:4000/auth/logout", {withCredentials: true})
+
   };
 
   return (
