@@ -8,7 +8,7 @@
     align-items: center;
     height: 50px;
     width: 50px;
-    background-color: #26490B;
+    background-color: #343541;
     margin: 50px;
     padding: 0 20gpx;
   }
@@ -41,7 +41,7 @@
     right: 10px;
     height: 100%;
     width: 100px;
-    background-color: #26490B;
+    background-color: #343541;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
   }
@@ -60,7 +60,7 @@
     padding: 10px;
     border: none;
     text-align: left;
-    background-color: #2d5310;
+    background-color: #202123;
     cursor: pointer;
     font-size: 16px;
   }

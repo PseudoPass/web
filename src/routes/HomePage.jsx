@@ -15,7 +15,7 @@ const HomePage = (props) => {
   return (
     <>
       <Layout className="layout">
-        <Header style={{ backgroundColor: '#26490B', height: '150px' }}>
+        <Header style={{ backgroundColor: '#343541', height: '150px' }}>
           <div style={{ marginTop: '44px' }}>
             <img className="logo" src={Logo} alt="logo" />
           </div>
@@ -74,7 +74,7 @@ const HomePage = (props) => {
                 </a>
               </div>
             </div>
-            <div className="layout-content" style={{ background: '#18423E' }}>
+            <div className="layout-content" style={{ background: '#444654' }}>
               <div className="write_content">
                 <Title level={2} style={{ color: 'white' }}>
                   Pseudo Pass 101
@@ -106,7 +106,7 @@ const HomePage = (props) => {
                 />
               </div>
             </div>
-            <div className="layout-content" style={{ background: '#26490B' }}>
+            <div className="layout-content" style={{ background: '#343541' }}>
               <div className="image_content">
                 <iframe
                   style={{ border: 'none' }}
@@ -134,7 +134,7 @@ const HomePage = (props) => {
                 </Paragraph>
               </div>
             </div>
-            <div className="layout-content" style={{ background: '#18423E' }}>
+            <div className="layout-content" style={{ background: '#444654' }}>
               <div className="write_content">
                 <Title level={2} style={{ color: 'white' }}>
                   VCs
@@ -165,7 +165,7 @@ const HomePage = (props) => {
           </div>
         </Content>
         <Footer
-          style={{ textAlign: 'center', background: '#26490B', color: '#fff' }}
+          style={{ textAlign: 'center', background: '#343541', color: '#fff' }}
         >
           @ copyright 2023 by Pseudo Pass
         </Footer>

@@ -1,5 +1,5 @@
 body {
-    background-color: #26490B;
+    background-color: #343541;
     margin: 0; /* Add this to remove default margin */
   }
   
@@ -8,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh; /* Change min-height to height */
-    background-color: #26490B;
+    background-color: #343541;
     flex-direction: column; /* Add this */
   }
   
