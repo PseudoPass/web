@@ -14,7 +14,7 @@ const Dashboard = () => {
     const handleGenerateVC = () => {
     // Add code to generate VC (Verifiable Credential) here.
     console.log('Generate VC button clicked');
-    axios.post("http://localhost:4000/cred/", {}, {withCredentials: true})
+    axios.post(`${process.env.REACT_APP_API_HOSTNAME}/cred/`, {}, {withCredentials: true})
         .then((res) => {
           console.log(res);
         })
@@ -30,8 +30,8 @@ const Dashboard = () => {
 
     useEffect( () => {
         const fetchData = async () => {
-            const promise1 = axios.get("http://localhost:4000/user/profile", {withCredentials: true})
-            const promise2 = axios.get("http://localhost:4000/did/", {withCredentials: true})
+            const promise1 = axios.get(`${process.env.REACT_APP_API_HOSTNAME}/user/profile`, {withCredentials: true})
+            const promise2 = axios.get(`${process.env.REACT_APP_API_HOSTNAME}/did/`, {withCredentials: true})
             const [response1, response2] = await Promise.all([promise1, promise2]);
             setData({profile: response1.data, did: response2.data})
             console.log(data)

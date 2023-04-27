@@ -76,7 +76,7 @@ const TypeId = () => {
     // Navigate to the Dashboard component
 
     // Send a POST request to the backend with the typedId as payload
-    axios.post("http://localhost:4000/user/studentid", {
+    axios.post(`${process.env.REACT_APP_API_HOSTNAME}/user/studentid`, {
       sjsuId: typedId,
     }, {withCredentials: true})
       .then( (result) => {
