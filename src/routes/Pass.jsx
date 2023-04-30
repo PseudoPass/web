@@ -7,7 +7,7 @@ const Pass = (props) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/user/profile", {withCredentials: true})
+    axios.get(`${process.env.REACT_APP_API_HOSTNAME}/user/profile`, {withCredentials: true})
         .then((result) => {
           setData(result.data)
         })

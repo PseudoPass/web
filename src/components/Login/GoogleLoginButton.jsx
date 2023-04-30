@@ -9,9 +9,8 @@ const GoogleLoginButton = (props) => {
 
   const handleGoogleLogin = () => {
     let timer = null;
-    const googleLoginURL = 'http://localhost:4000/auth/google';
     const newWindow = window.open(
-      googleLoginURL,
+      `${process.env.REACT_APP_API_HOSTNAME}/auth/google`,
       '_blank',
       'width=500,height=800'
     );
@@ -20,7 +19,7 @@ const GoogleLoginButton = (props) => {
         if (newWindow.closed) {
           console.log('Fetching auth...');
           axios
-            .get('http://localhost:4000/auth/validate', {
+            .get(`${process.env.REACT_APP_API_HOSTNAME}/auth/validate`, {
               withCredentials: true,
             })
             .then((res) => {
@@ -33,7 +32,7 @@ const GoogleLoginButton = (props) => {
             })
             .catch((err) => {
               console.log(err);
-              navigate('/login');
+              navigate('/');
             });
           if (timer) clearInterval(timer);
         }

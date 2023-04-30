@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const ApiTest = () => {
     useEffect(() => {
-        axios.get('http://localhost:4000/did/test', {withCredentials: true})
+        axios.get(`${process.env.REACT_APP_API_HOSTNAME}/did/test`, {withCredentials: true})
             .then(res => {
                 console.log(res)
             })

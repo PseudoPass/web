@@ -10,7 +10,7 @@ function NavigationBar(props) {
   const { profile, setProfile } = props;
   const handleLogout = async () => {
     // Send request to backend requesting cookies and session data be deleted
-      const res = await axios.get("http://localhost:4000/auth/logout", {withCredentials: true});
+      const res = await axios.get(`${process.env.REACT_APP_API_HOSTNAME}/auth/logout`, {withCredentials: true});
       setProfile(null);
   };
 

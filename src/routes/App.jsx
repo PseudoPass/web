@@ -17,7 +17,7 @@ const App = () => {
   const [profile, setProfile] = useState(null);
   useEffect( () => {
     const fetchData = async () => {
-      const res = await axios.get("http://localhost:4000/user/profile", {withCredentials: true})
+      const res = await axios.get(`${process.env.REACT_APP_API_HOSTNAME}/user/profile`, {withCredentials: true})
       setProfile(res.data);
       console.log(res.data)
     }
